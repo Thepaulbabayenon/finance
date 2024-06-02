@@ -29,9 +29,8 @@ export function calculatePercentageChange(
   previous: number,
 ) {
   if (previous === 0) {
-    return previous === current ? 0 : 100;
+    return current === 0 ? 0 : Infinity;
   }
-
   return ((current - previous) / previous) * 100;
 }
 
@@ -77,7 +76,7 @@ type Period = {
   to: string | Date | undefined;
 };
 
-export function formatdDateRange (period?: Period) {
+export function formatDateRange (period?: Period) {
   const defaultTo = new Date();
   const defaultFrom = subDays(defaultTo, 30);
 
@@ -95,13 +94,17 @@ export function formatdDateRange (period?: Period) {
 
 export function formatPercentage(
   value: number,
-  options: {addPrefix?: boolean} = {
+  options: { addPrefix?: boolean } = {
     addPrefix: false,
   },
 ) {
+  if (!isFinite(value)) {
+    return "N/A";
+  }
+
   const result = new Intl.NumberFormat("en-US", {
     style: "percent",
-  }).format(value / 100)
+  }).format(value / 100);
 
   if (options.addPrefix && value > 0) {
     return `+${result}`;

@@ -33,10 +33,10 @@ const iconVariant = cva(
     {
         variants: {
             variant: {
-                default: "bg-blue-500",
-                success: "bg-emerald-500",
-                danger: "bg-rose-500",
-                warning: "bg-yellow-500",
+                default: "fill-blue-500",
+                success: "fill-emerald-500",
+                danger: "fill-rose-500",
+                warning: "fill-yellow-500",
             }
         },
         defaultVariants: {
@@ -76,8 +76,10 @@ export const DataCard = ({
                     {dateRange}
                 </CardDescription>
             </div>
-            <div className={cn(boxVariant({variant}))}>
-                <Icon className={cn(iconVariant({variant}))} />
+            <div className={cn(
+                boxVariant({ variant }),
+            )}>
+                <Icon className={cn(iconVariant({ variant }))} />
             </div>
         </CardHeader>
         <CardContent>

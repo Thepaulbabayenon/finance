@@ -72,7 +72,7 @@ const onSubmit = (values: formValues) => {
                         New Transaction
                     </SheetTitle>
                     <SheetDescription>
-                        Add a transaction.
+                        Add a transaction from the last 30 days.
                     </SheetDescription>
                 </SheetHeader>
                 {isLoading

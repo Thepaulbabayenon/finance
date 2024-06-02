@@ -1,6 +1,6 @@
 "use client";
 import { useGetSummary } from "@/features/summary/api/use-get-summary";
-import { formatdDateRange } from "@/lib/utils";
+import { formatDateRange } from "@/lib/utils";
 import  { useSearchParams} from "next/navigation";
 
 import { FaPiggyBank} from "react-icons/fa";
@@ -16,7 +16,7 @@ export const DataGrid = () => {
     const to = params.get("to") || undefined;
     const from = params.get("from") || undefined;
 
-    const dateRangeLabel = formatdDateRange({to, from})
+    const dateRangeLabel = formatDateRange({to, from})
 
     if (isLoading) {
         return (
@@ -35,7 +35,6 @@ export const DataGrid = () => {
                 value={data?.remainingAmount}
                 percentageChange={data?.remainingChange}
                 icon={FaPiggyBank}
-                variant="default"
                 dateRange={dateRangeLabel}
             />
             <DataCard 
@@ -43,7 +42,6 @@ export const DataGrid = () => {
                 value={data?.incomeAmount}
                 percentageChange={data?.incomeChange}
                 icon={FaArrowTrendUp}
-                variant="default"
                 dateRange={dateRangeLabel}
             />
             <DataCard 
@@ -51,7 +49,6 @@ export const DataGrid = () => {
                 value={data?.expensesAmount}
                 percentageChange={data?.expensesChange}
                 icon={FaArrowTrendDown}
-                variant="default"
                 dateRange={dateRangeLabel}
             />
         </div>

@@ -10,7 +10,7 @@ import { useState } from "react";
 import {format, subDays} from "date-fns";
 import { ChevronDown} from "lucide-react";
 import { DateRange } from "react-day-picker";
-import { cn, formatdDateRange } from "@/lib/utils";
+import { cn, formatDateRange } from "@/lib/utils";
 import { Button } from "./ui/button";
 import { Calendar } from "./ui/calendar";
 import {
@@ -74,7 +74,7 @@ export const DateFilter = () => {
                 focus:ring-offset-0 focus:ring-transparent outline-none
                 text-white focus:bg-white/30 transition"
                 >
-                    <span>{formatdDateRange(paramState)}</span>
+                    <span>{formatDateRange(paramState)}</span>
                     <ChevronDown className="ml-2 size-4 opacity-50"/>
                 </Button>
             </PopoverTrigger>
